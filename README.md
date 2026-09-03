@@ -1,32 +1,93 @@
-# React + TypeScript + Vite
+# † IgrejasMapa
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Mapa interativo para localização de igrejas católicas na cidade de Bom Lugar. O projeto exibe as igrejas em um mapa, com lista lateral e painel de detalhes com horários de missa e confissão.
 
-Currently, two official plugins are available:
+> Projeto desenvolvido para portfólio pessoal, com foco em boas práticas de código, organização e documentação.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Screenshot do projeto](./docs/image.png)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias
 
-## Expanding the Oxlint configuration
+- [React 19](https://react.dev/) — biblioteca para construção de interfaces
+- [TypeScript](https://www.typescriptlang.org/) — tipagem estática
+- [Vite](https://vite.dev/) — bundler e servidor de desenvolvimento
+- [Leaflet](https://leafletjs.com/) + [React-Leaflet](https://react-leaflet.js.org/) — mapas interativos com OpenStreetMap
+- [Tailwind CSS v4](https://tailwindcss.com/) — estilização utilitária
+- [Prettier](https://prettier.io/) — formatação de código
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Funcionalidades
+
+- [x] Mapa interativo com pins de localização
+- [x] Lista lateral com nome, endereço e status (aberta/fechada)
+- [x] Painel de detalhes com horários de missa e confissão
+- [ ] Filtro por bairro
+- [ ] Busca por nome
+- [ ] Geolocalização do usuário
+
+---
+
+## Como rodar localmente
+
+**Pré-requisitos:** Node.js 18+
+
+```bash
+# Clone o repositório
+git clone https://github.com/gabrielslsz/IgrejasMapa.git
+
+# Entre na pasta
+cd IgrejasMapa
+
+# Instale as dependências
+npm install
+
+# Rode o servidor de desenvolvimento
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Acesse `http://localhost:5173` no navegador.
+
+---
+
+## Estrutura de pastas
+
+```
+src/
+├── components/
+│   ├── ChurchDetail/     # Painel de detalhes da igreja selecionada
+│   ├── ChurchList/       # Lista lateral de igrejas
+│   └── Maps/             # Componente do mapa com Leaflet
+├── data/
+│   └── churches.ts       # Dados mockados das igrejas (MVP)
+├── types/
+│   └── church.ts         # Interface TypeScript Church
+├── App.tsx               # Componente raiz e layout principal
+└── main.tsx              # Ponto de entrada da aplicação
+```
+
+---
+
+## Decisões técnicas
+
+- **Dados em arquivo `.ts`** em vez de banco de dados — suficiente para o MVP e permite tipar os dados com a interface `Church`
+- **OpenStreetMap** via Leaflet — gratuito, sem necessidade de API key
+- **Tailwind CSS v4** — integrado via plugin do Vite, sem arquivo de configuração separado
+
+---
+
+## Próximos passos
+
+- Migrar dados para o **Supabase** com extensão PostGIS
+- Adicionar filtro por bairro e busca por nome
+- Exibir distância até a igreja com base na geolocalização do usuário
+- Deploy na Vercel
+
+---
+
+## Autor
+
+**Gabriel Sousa**
+[GitHub](https://github.com/gabrielslsz)
