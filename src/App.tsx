@@ -15,7 +15,7 @@ function App() {
         <h1 className="p-4 text-lg font-bold border-b">IgrejasMapa</h1>
         <ChurchList churches={churches} onSelect={setSelected} />
       </aside>
-      
+
       <main className="flex-1">
         <MapView churches={churches} />
       </main>
