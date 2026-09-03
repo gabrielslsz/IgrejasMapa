@@ -4,6 +4,8 @@ Mapa interativo para localização de igrejas católicas na cidade de Bom Lugar.
 
 > Projeto desenvolvido para portfólio pessoal, com foco em boas práticas de código, organização e documentação.
 
+🔗 **[Ver projeto ao vivo](https://igrejas-mapa.vercel.app)**
+
 ![Screenshot do projeto](./docs/image.png)
 
 ---
