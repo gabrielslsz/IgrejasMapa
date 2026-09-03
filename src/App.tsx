@@ -17,7 +17,7 @@ function App() {
       </aside>
 
       <main className="flex-1">
-        <MapView churches={churches} />
+        <MapView churches={churches} selected={selected} />
       </main>
 
       <aside className="w-80 overflow-y-auto border-l bg-white">
